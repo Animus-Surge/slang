@@ -1,6 +1,8 @@
 use self::models::_Message;
-use diesel::prelude::*;
+// use diesel::prelude::*;
 use slang_backend::*;
+
+use slang_backend::auth::handle;
 
 #[macro_use] extern crate rocket;
 
@@ -20,7 +22,7 @@ fn index() -> &'static str {
 
 #[get("/")]
 fn list() -> Status {
-    Status::NetworkAuthenticationRequired
+    Status::Unauthorized
 }
 
 #[post("/create", data="<message>")]
@@ -32,7 +34,7 @@ fn send(message: Json<_Message>) -> Status {
 fn get(message: i32) -> Status {
     //TODO: write logic to find the stuff
 
-    Status::InternalServerError
+    Status::NotImplemented
 }
 
 #[launch]

@@ -1,0 +1,12 @@
+NOT FOR PRODUCTION USE
+FOR PLANNING USE ONLY
+
+Slang db object scheme
+
+Messages - Messages can only be accessed via groups endpoint AND if user getting the data is in a role that can access the channel; OR if the channel is set to public
+
+{
+    "message_id": type integer,
+    "message_author": type integer,
+
+}

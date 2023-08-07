@@ -1,0 +1,19 @@
+:root {
+
+    /*Default dark theme*/
+    --theme1-color-primary: #222;
+    --theme1-color-secondary: #c80;
+    --theme1-color-secondary-dark: #a60;
+    --theme1-color-accent0: #333;
+    --theme1-color-accent1: #444;
+    --theme1-color-accent2: #555;
+
+    --theme1-color-text-light: #ccc;
+    --theme1-color-text-dark: #000;
+    --theme1-color-text-link: #c80;
+    --theme1-color-text-linkv: #cc0;
+    --theme1-color-text-linkv-dark: #880;
+
+    /*TODO: other themes*/
+
+}

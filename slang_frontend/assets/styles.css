@@ -1,0 +1,11 @@
+@import "./vars.css";
+
+html, body {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--theme1-color-primary);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Custom theming*/

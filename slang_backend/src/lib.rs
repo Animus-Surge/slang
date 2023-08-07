@@ -1,7 +1,11 @@
 pub mod schema;
 pub mod models;
 
-use self::models::{Message, _Message};
+pub mod auth {
+	pub mod handle;
+}
+
+use self::models::_Message;
 
 use diesel::pg::PgConnection;
 use diesel::prelude::*;
@@ -36,5 +40,5 @@ pub fn add_message(author: i32, text: &str, authored: &str) -> Status {
 
 	if ins.is_err() {return Status::InternalServerError;}
 
-	Status::Ok
+	Status::Created
 }
