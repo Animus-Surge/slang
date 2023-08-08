@@ -2,8 +2,6 @@ use self::models::_Message;
 // use diesel::prelude::*;
 use slang_backend::*;
 
-use slang_backend::auth::handle;
-
 #[macro_use] extern crate rocket;
 
 use rocket::{serde::json::Json, http::Status};

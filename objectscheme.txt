@@ -6,7 +6,21 @@ Slang db object scheme
 Messages - Messages can only be accessed via groups endpoint AND if user getting the data is in a role that can access the channel; OR if the channel is set to public
 
 {
-    "message_id": type integer,
+    "message_id": type integer; unique,
     "message_author": type integer,
+    "message_content": type string,
+    "message_type": type string; oneof [attachment text],
+    "message_sent": type datetime
+}
 
+Users
+
+{
+    "id": type integer; unique,
+    "username": type string; unique,
+    "displayname": type string,
+    "icon_url": type string,
+    "friends": type array,
+    "blocked": type array,
+    "groups": type array
 }

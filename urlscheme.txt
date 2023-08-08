@@ -10,4 +10,4 @@ http://api.slang.com/
 | | - delete/<groupid>                      # (POST) Deletes a group; Authenticated token must be member of sudo in group
 | | - <groupid>/                            # (GET) Retrieves information about a group; Level of detail depends on authenticated token; (SOME INFORMATION CAN BE PUBLIC)
 | | | - invite/                             # (GET) Retrieves public invite link, if set; otherwise returns 403
-| | | - 
+| | | - link/                               # Unique invite link endpoint, no direct access

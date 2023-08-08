@@ -23,31 +23,28 @@ div.navbar ul {
 }
 
 li a {
+    display: block;
+    float: left;
+    padding: 8px;
+    margin-right: 10px;
     color: var(--theme1-color-text-light);
     text-decoration: none;
-    display: block;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding: 8px;
-    background-color: var(--theme1-color-accent2);
-    float: left;
-    border-radius: 5px;
-    box-shadow: 4px 4px 0 0 var(--theme1-color-accent1);
-    transition-property: box-shadow, background-color, color, translate;
+    background-color: var(--theme1-color-accent1);
+
+    /* Transitions */
+    transition-property: color, background-color;
     transition-duration: 100ms;
 }
 
 li.active a {
-    background-color: var(--theme1-color-secondary);
     color: var(--theme1-color-text-dark);
-    box-shadow: 4px 4px 0 0 var(--theme1-color-secondary-dark);
+    background-color: var(--theme1-color-secondary);
 }
 
 li a:hover {
-    background-color: var(--theme1-color-text-linkv);
     color: var(--theme1-color-text-dark);
-    box-shadow: 2px 2px 0 0 var(--theme1-color-text-linkv-dark);
-    translate: 2px 2px;
+    background-color: var(--theme1-color-tertary);
+    text-decoration: none;
 }
 
 </style>

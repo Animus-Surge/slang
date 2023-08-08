@@ -1,10 +1,6 @@
 pub mod schema;
 pub mod models;
 
-pub mod auth {
-	pub mod handle;
-}
-
 use self::models::_Message;
 
 use diesel::pg::PgConnection;

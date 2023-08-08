@@ -1,5 +1,6 @@
 {
     "rust-analyzer.linkedProjects": [
         "./slang_backend/Cargo.toml"
-    ]
+    ],
+    "nuxt.isNuxtApp": false
 }
