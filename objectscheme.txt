@@ -24,3 +24,14 @@ Users
     "blocked": type array,
     "groups": type array
 }
+
+Groups
+
+{
+    "id":type integer; unique,
+    "name":type string,
+    "icon_url":type string,
+    "roles":type array,
+    "members":type array,
+    "administrators":type array
+}
