@@ -1,4 +1,3 @@
-use self::models::_Message;
 // use diesel::prelude::*;
 use slang_backend::*;
 
@@ -24,8 +23,9 @@ fn list() -> Status {
 }
 
 #[post("/create", data="<message>")]
-fn send(message: Json<_Message>) -> Status {
-    add_message(message.message_author, message.message_text, message.message_sent)
+fn send(message: &str) -> Status {
+    // add_message(message.message_author, message.message_text, message.message_sent)
+    Status::NotImplemented
 }
 
 #[get("/<message>")]

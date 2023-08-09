@@ -11,3 +11,9 @@ http://api.slang.com/
 | | - <groupid>/                            # (GET) Retrieves information about a group; Level of detail depends on authenticated token; (SOME INFORMATION CAN BE PUBLIC)
 | | | - invite/                             # (GET) Retrieves public invite link, if set; otherwise returns 403
 | | | - link/                               # Unique invite link endpoint, no direct access
+| | | - <channelid>/						# (GET) Retrieves information about a channel in a group
+| | | | - send/								# (POST) Sends a message in the channel
+| | | | - <messageid>/						# (GET) Retrieves information about a message in a channel
+| | | | | - delete/							# (POST?) Deletes the message; Authenticated user must be same as author OR mod/admin in group
+| | | | | - edit/							# (POST) Updates the message; see delete/ notes
+| | |
