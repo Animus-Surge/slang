@@ -56,6 +56,14 @@
             <div class="section-grid">
                 <div class="card">
                     <h4>Friends</h4>
+                    <hr>
+                    <div class="placeholder-ping">
+                        <img style="border-radius:50%" src="https://placehold.co/50/green/green"/>
+                        <div class="placeholder-ping-text">
+                            <p><strong>GalaxyFren101</strong></p>
+                            <p>0 unread messages</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

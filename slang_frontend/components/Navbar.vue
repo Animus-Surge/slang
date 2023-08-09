@@ -7,6 +7,7 @@
             <li><NuxtLink to="/">Notifications</NuxtLink></li>
             <li><NuxtLink to="/">Profile</NuxtLink></li>
         </ul>
+        <!--TODO: server list-->
     </div>
 </template>
 
