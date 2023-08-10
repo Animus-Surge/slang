@@ -4,6 +4,7 @@ pub mod models;
 use diesel::pg::PgConnection;
 use diesel::prelude::*;
 use dotenvy::dotenv;
+use models::Group;
 use rocket::http::Status;
 use std::env;
 
@@ -20,5 +21,20 @@ pub fn establish_connection() -> Result<PgConnection, Status> {
 	}
 
 	Ok(conn.unwrap())
+}
+
+pub fn get_group_info(gid: i32) -> Group {
+	use self::schema::slang_groups::dsl::*;
+
+	let conn = &mut establish_connection().unwrap();
+
+	let result = slang_groups
+		.filter(group_id.eq(gid))
+		.limit(1)
+		.select(Group::as_select())
+		.load(conn)
+		.expect("Error");
+
+	result[0].clone()
 }
 

@@ -8,38 +8,51 @@ use rocket::{serde::json::Json, http::Status};
 /*
 BACKEND TODO BOARD
 
+- Messages
+- Users
 - Groups
 ...
 */
 
 #[get("/")]
-fn index() -> &'static str {
-    "Slang root index"
+fn index() -> Status {
+    Status::Ok
 }
 
-#[get("/")]
-fn list() -> Status {
-    Status::Unauthorized
-}
+//Group queries
 
-#[post("/create", data="<message>")]
-fn send(message: &str) -> Status {
-    // add_message(message.message_author, message.message_text, message.message_sent)
+// GET: returns information about group [groupid]
+#[get("/<groupid>")]
+fn group_index(groupid: i32) -> Status {
+    let group = get_group_info(groupid);
+
     Status::NotImplemented
 }
 
-#[get("/<message>")]
-fn get(message: i32) -> Status {
-    //TODO: write logic to find the stuff
+// GET: returns the invite link for group [groupid]
+#[get("/<groupid>/invite")]
+fn group_invite(groupid: i32) -> Status {
+    Status::NotImplemented
+}
 
+// POST: adds a role to the group
+#[get("/<groupid>/addrole")]
+fn group_addrole(groupid: i32) -> Status {
+    Status::NotImplemented
+}
+
+// DELETE: removes a role from the group
+#[delete("/<groupid>/removerole/<roleid>")]
+fn group_removerole(groupid: i32, roleid: i32) -> Status {
     Status::NotImplemented
 }
 
 #[launch]
 fn rocket() -> _ {
-
-
     rocket::build()
+        //mount index roots
         .mount("/", routes![index])
-        .mount("/messages", routes![get, list, send])
+        //mount group routes
+        .mount("/groups", routes![group_index])
+        //mount user routes
 }
