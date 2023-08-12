@@ -23,7 +23,7 @@ diesel::table! {
     slang_msgs (message_id) {
         message_id -> Int4,
         message_author -> Int4,
-        message_sent -> Timestamp,
+        message_sent -> Text,
         message_edited -> Bool,
         message_content -> Text,
         message_content_type -> Text,
@@ -42,7 +42,8 @@ diesel::table! {
 
 diesel::table! {
     slang_users (user_id) {
-        user_id -> Text,
+        user_id -> Int4,
+        user_authuid -> Text,
         user_username -> Text,
         user_displayname -> Nullable<Text>,
         user_friends -> Array<Nullable<Int4>>,

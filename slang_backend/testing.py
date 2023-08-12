@@ -1,9 +1,11 @@
 import requests
 
-data = {
-    "title":"Test title",
-    "body":"aliebfaiubfla iuefhaliewufbal iuwehfliuawef uiawehfa ilwuef iwebf auwf lauhef uvhe Animus_Surge, awienfa uafe uwae"
+msgdata = {
+    "message_author":1,
+    "message_content":"Hewwo!",
+    "message_sent":"2023-8-11/22:55:00"
 }
 
-req = requests.post("http://localhost:8000/posts/create", json=data)
+req = requests.post("http://localhost:8000/groups/1/1/send", json=msgdata)
 print(req.status_code)
+print(req.text)

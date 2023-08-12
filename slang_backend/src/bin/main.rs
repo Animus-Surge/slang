@@ -1,5 +1,5 @@
 // use diesel::prelude::*;
-use slang_backend::*;
+use slang_backend::{*, models::*};
 
 #[macro_use] extern crate rocket;
 
@@ -21,12 +21,31 @@ fn index() -> Status {
 
 //Group queries
 
+// POST: creates a new group
+#[post("/create")]
+fn group_create() -> SlangResponse<String> {
+    SlangResponse::NoImplResponse("No group create functionality yet".to_string())
+}
+
 // GET: returns information about group [groupid]
 #[get("/<groupid>")]
-fn group_index(groupid: i32) -> Status {
-    let group = get_group_info(groupid);
+fn group_index(groupid: i32) -> SlangResponse<Vec<Group>> {
+    let query = get_group_info(groupid);
 
-    Status::NotImplemented
+    if query.is_err() {
+        match query.err() {
+            Some(status) => return SlangResponse::ErrorResponse(status.to_string()),
+            None => return SlangResponse::ErrorResponse("Some Error".to_string())
+        }
+    }
+
+    let group = query.unwrap();
+
+    if group.len() == 0 {
+        return SlangResponse::NotFoundResponse("Could not find specified group".to_string());
+    }
+
+    SlangResponse::QueryResponse(Json(group))
 }
 
 // GET: returns the invite link for group [groupid]
@@ -36,15 +55,41 @@ fn group_invite(groupid: i32) -> Status {
 }
 
 // POST: adds a role to the group
-#[get("/<groupid>/addrole")]
+#[post("/<groupid>/addrole")]
 fn group_addrole(groupid: i32) -> Status {
     Status::NotImplemented
 }
 
-// DELETE: removes a role from the group
-#[delete("/<groupid>/removerole/<roleid>")]
-fn group_removerole(groupid: i32, roleid: i32) -> Status {
+#[get("/<groupid>/roles/<roleid>")]
+fn group_getrole(groupid: i32, roleid: i32) -> Status {
     Status::NotImplemented
+}
+
+#[patch("/<groupid>/roles/<roleid>/update")]
+fn group_editrole(groupid: i32, roleid: i32) -> Status {
+    Status::NotImplemented 
+}
+
+#[delete("/<groupid>/roles/<roleid>/delete")]
+fn group_deleterole(groupid: i32, roleid: i32) -> Status {
+    Status::NotImplemented
+}
+
+#[post("/<groupid>/create")]
+fn group_createchannel(groupid: i32) -> Status {
+    Status::NotImplemented
+}
+
+#[get("/<groupid>/<channelid>")]
+fn group_getchannel(groupid: i32, channelid: i32) -> Status {
+    Status::NotImplemented
+}
+
+#[post("/<groupid>/<channelid>/send", data = "<message>")]
+fn channel_sendmsg(groupid: i32, channelid: i32, message: Json<MessageCreate>) -> Status {
+    //TODO channel and group handling
+
+    create_message(message.0)
 }
 
 #[launch]
@@ -53,6 +98,6 @@ fn rocket() -> _ {
         //mount index roots
         .mount("/", routes![index])
         //mount group routes
-        .mount("/groups", routes![group_index])
+        .mount("/groups", routes![group_index, group_create, channel_sendmsg])
         //mount user routes
 }
