@@ -5,7 +5,7 @@ use diesel::pg::PgConnection;
 use diesel::prelude::*;
 use diesel::result::Error;
 use dotenvy::dotenv;
-use models::{Group, Message, MessageCreate};
+use models::{Group, Message, MessageCreate, GroupCreate};
 use rocket::Responder;
 use rocket::http::Status;
 use rocket::serde::json::Json;
@@ -74,7 +74,7 @@ pub fn get_group_info(gid: i32) -> Result<Vec<Group>, Status> {
 	Ok(result)
 }
 
-pub fn create_group(group_data: String) -> Status {
+pub fn create_group(group_data: GroupCreate) -> Status {
 	Status::NotImplemented
 }
 
@@ -117,4 +117,14 @@ pub fn create_message(/*TODO: channel and group management*/message: MessageCrea
 	}
 
 	Status::Created
+}
+
+// Channel handling
+
+pub fn get_channel() -> Status {
+	Status::NotImplemented
+}
+
+pub fn create_channel() -> Status {
+	Status::NotImplemented
 }

@@ -1,19 +1,29 @@
-// use diesel::prelude::*;
 use slang_backend::{*, models::*};
 
 #[macro_use] extern crate rocket;
 
 use rocket::{serde::json::Json, http::Status};
 
-/*
-BACKEND TODO BOARD
+// Utility members
 
-- Messages
-- Users
-- Groups
-...
-*/
+fn generate_response<T>(query_handle: Result<Vec<T>, Status>) -> SlangResponse<Vec<T>> {
+    if query_handle.is_err() {
+        match query_handle.err() {
+            Some(status) => return SlangResponse::ErrorResponse(status.to_string()),
+            None => return SlangResponse::ErrorResponse("Some Error".to_string())
+        }
+    }
 
+    let group = query_handle.unwrap();
+
+    if group.len() == 0 {
+        return SlangResponse::NotFoundResponse("Could not find specified group".to_string());
+    }
+
+    SlangResponse::QueryResponse(Json(group))
+}
+
+//Root index
 #[get("/")]
 fn index() -> Status {
     Status::Ok
@@ -30,22 +40,7 @@ fn group_create() -> SlangResponse<String> {
 // GET: returns information about group [groupid]
 #[get("/<groupid>")]
 fn group_index(groupid: i32) -> SlangResponse<Vec<Group>> {
-    let query = get_group_info(groupid);
-
-    if query.is_err() {
-        match query.err() {
-            Some(status) => return SlangResponse::ErrorResponse(status.to_string()),
-            None => return SlangResponse::ErrorResponse("Some Error".to_string())
-        }
-    }
-
-    let group = query.unwrap();
-
-    if group.len() == 0 {
-        return SlangResponse::NotFoundResponse("Could not find specified group".to_string());
-    }
-
-    SlangResponse::QueryResponse(Json(group))
+    generate_response(get_group_info(groupid))
 }
 
 // GET: returns the invite link for group [groupid]
@@ -77,12 +72,12 @@ fn group_deleterole(groupid: i32, roleid: i32) -> Status {
 
 #[post("/<groupid>/create")]
 fn group_createchannel(groupid: i32) -> Status {
-    Status::NotImplemented
+    create_channel()
 }
 
 #[get("/<groupid>/<channelid>")]
 fn group_getchannel(groupid: i32, channelid: i32) -> Status {
-    Status::NotImplemented
+    get_channel()
 }
 
 #[post("/<groupid>/<channelid>/send", data = "<message>")]
@@ -92,12 +87,17 @@ fn channel_sendmsg(groupid: i32, channelid: i32, message: Json<MessageCreate>) -
     create_message(message.0)
 }
 
+#[get("/<groupid>/<channelid>/<messageid>")]
+fn channel_getmessage(groupid: i32, channelid: i32, messageid: i32) -> SlangResponse<Vec<Message>> {
+    generate_response(get_message(messageid))
+}
+
 #[launch]
 fn rocket() -> _ {
     rocket::build()
         //mount index roots
         .mount("/", routes![index])
         //mount group routes
-        .mount("/groups", routes![group_index, group_create, channel_sendmsg])
+        .mount("/groups", routes![group_index, group_create, channel_sendmsg, channel_getmessage])
         //mount user routes
 }
