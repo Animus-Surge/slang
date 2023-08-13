@@ -17,7 +17,7 @@ fn generate_response<T>(query_handle: Result<Vec<T>, Status>) -> SlangResponse<V
     let group = query_handle.unwrap();
 
     if group.len() == 0 {
-        return SlangResponse::NotFoundResponse("Could not find specified group".to_string());
+        return SlangResponse::NotFoundResponse("Data not found".to_string());
     }
 
     SlangResponse::QueryResponse(Json(group))

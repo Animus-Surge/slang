@@ -1,8 +1,8 @@
 import requests
 
 msgdata = {
-    "message_author":1,
-    "message_content":"Hewwo!",
+    "message_author":2,
+    "message_content":"Hi there!",
     "message_sent":"2023-8-11/22:55:00"
 }
 

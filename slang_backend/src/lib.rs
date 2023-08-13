@@ -82,7 +82,29 @@ pub fn create_group(group_data: GroupCreate) -> Status {
 // Message handling
 
 pub fn get_message(msgid: i32) -> Result<Vec<Message>, Status> {
-	Err(Status::NotImplemented)
+	//TODO: group and channel ID handling
+	use self::schema::slang_msgs::dsl::*;
+
+	//Get the connection to the database
+	let est = establish_connection();
+
+	if est.is_err() {
+		match est.err() {
+			Some(status) => return Err(status),
+			// Some(_) => return Err(Status::InternalServerError),
+			None => return Err(Status::InternalServerError)
+		}
+	}
+	let conn = &mut establish_connection().unwrap();
+
+	let result = slang_msgs
+		.filter(message_id.eq(msgid))
+		.limit(1)
+		.select(Message::as_select())
+		.load(conn)
+		.expect("Error");
+
+	Ok(result)
 }
 
 pub fn create_message(/*TODO: channel and group management*/message: MessageCreate) -> Status {
