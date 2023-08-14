@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Navbar></Navbar>
+    <Navbar/>
+    <Grouplist/>
     <div class="app-main"> <!--Horizontal container-->
-      <!--grouplist-->
       <NuxtPage/>
     </div>
     <!--Footer-->
