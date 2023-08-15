@@ -1,10 +1,14 @@
 <script setup lang="ts">
 //TODO: auto populate grouplist
+
+function moveToGroup() {
+	navigateTo("/groups/1")
+}
 </script>
 
 <template>
 	<div class="grouplist">
-		<div class="element">
+		<div v-on:click="moveToGroup" class="element">
 			<img class="group-icon" src="https://placehold.co/45x45/aqua/aqua"/>
 		</div>
 		<div class="element">
@@ -26,10 +30,12 @@
 div.grouplist {
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
 	gap: 5px;
 	padding: 5px;
 	background-color: #0004;
-	width: 100vw;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 div.element {

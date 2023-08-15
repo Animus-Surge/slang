@@ -10,7 +10,13 @@
 </template>
 
 <style scoped>
+
+div {
+  height: 100%;
+}
+
 div.app-main {
   display: flex;
+  height: 100%;
 }
 </style>

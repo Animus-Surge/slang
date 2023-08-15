@@ -1,8 +1,8 @@
 @import "./vars.css";
 
-body {
+html, body {
     background: linear-gradient(#222, #542);
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -37,5 +37,9 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+div#__nuxt {
+    
 }
 /*Custom theming*/
