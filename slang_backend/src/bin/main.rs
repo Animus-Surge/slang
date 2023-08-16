@@ -84,7 +84,7 @@ fn group_getchannel(groupid: i32, channelid: i32) -> Status {
 fn channel_sendmsg(groupid: i32, channelid: i32, message: Json<MessageCreate>) -> Status {
     //TODO channel and group handling
 
-    create_message(message.0)
+    create_message(groupid, channelid, message.0)
 }
 
 #[get("/<groupid>/<channelid>/<messageid>")]

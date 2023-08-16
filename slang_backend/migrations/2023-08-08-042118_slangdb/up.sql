@@ -30,6 +30,7 @@ create table slang_groups (
 	group_roles integer array not null default '{}',
 	group_admins integer array not null default '{}',
 	group_banlist integer array not null default '{}',
+	group_channels integer array not null default '{}',
 	group_public boolean not null default false
 );
 

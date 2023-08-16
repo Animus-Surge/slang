@@ -15,6 +15,7 @@ diesel::table! {
         group_roles -> Array<Nullable<Int4>>,
         group_admins -> Array<Nullable<Int4>>,
         group_banlist -> Array<Nullable<Int4>>,
+        group_channels -> Array<Nullable<Int4>>,
         group_public -> Bool,
     }
 }
