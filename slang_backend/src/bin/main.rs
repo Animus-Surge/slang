@@ -70,14 +70,14 @@ fn group_deleterole(groupid: i32, roleid: i32) -> Status {
     Status::NotImplemented
 }
 
-#[post("/<groupid>/create")]
-fn group_createchannel(groupid: i32) -> Status {
-    create_channel()
+#[post("/<groupid>/create", data = "<channel>")]
+fn group_createchannel(groupid: i32, channel: Json<ChannelCreate>) -> Status {
+    create_channel(groupid, channel.0)
 }
 
 #[get("/<groupid>/<channelid>")]
 fn group_getchannel(groupid: i32, channelid: i32) -> Status {
-    get_channel()
+    get_channel(groupid, channelid)
 }
 
 #[post("/<groupid>/<channelid>/send", data = "<message>")]

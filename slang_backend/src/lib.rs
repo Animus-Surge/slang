@@ -5,7 +5,7 @@ use diesel::pg::PgConnection;
 use diesel::prelude::*;
 use diesel::result::Error;
 use dotenvy::dotenv;
-use models::{Group, Message, MessageCreate, GroupCreate};
+use models::*;
 use rocket::Responder;
 use rocket::http::Status;
 use rocket::serde::json::Json;
@@ -176,7 +176,16 @@ pub fn create_message(groupid: i32, channelid: i32 ,message: MessageCreate) -> S
 	}
 
 	//Now we need to add it to the channel...
-	// let channel_add_query = diesel::sql_query("UPDATE ") //TODO
+	let ins_value = res.ok().unwrap();
+	let channel_add_query = diesel::sql_query(
+			format!(
+				"UPDATE slang_channels SET channel_msgs = ARRAY_APPEND(channel_msgs, {}) WHERE channel_id = {}", ins_value.message_id, channel.channel_id
+			)
+		)
+		.execute(conn);
+	if channel_add_query.is_err() {
+		return check_error(channel_add_query.err());
+	}
 
 	//And tell the client that the message was created. Done!
 	Status::Created
@@ -184,10 +193,10 @@ pub fn create_message(groupid: i32, channelid: i32 ,message: MessageCreate) -> S
 
 // Channel handling
 
-pub fn get_channel() -> Status {
+pub fn get_channel(groupid: i32, channelid: i32) -> Status {
 	Status::NotImplemented
 }
 
-pub fn create_channel() -> Status {
+pub fn create_channel(groupid: i32, channel: ChannelCreate) -> Status {
 	Status::NotImplemented
 }
