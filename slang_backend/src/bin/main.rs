@@ -94,9 +94,13 @@ fn channel_getmessage(groupid: i32, channelid: i32, messageid: i32) -> SlangResp
 
 #[launch]
 fn rocket() -> _ {
+    //Start the messenger socket listeners
+    
+
+    //Launch Rocket
     rocket::build()
         //mount index roots
-        .mount("/", routes![index])
+        .mount("/", routes![index]) 
         //mount group routes
         .mount("/groups", routes![group_index, group_create, channel_sendmsg, channel_getmessage])
         //mount user routes

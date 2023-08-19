@@ -1,9 +1,23 @@
+<script setup lang="ts">
+var disableNav = useState('disableNav')
+var navsDisabled = disableNav
+
+watch(disableNav, (newVal) => {
+  navsDisabled = disableNav
+})
+</script>
+
 <template>
   <div>
-    <Navbar/>
-    <Grouplist/>
+    <div v-if="false">
+      <Navbar/>
+      <Grouplist/>
+    </div>
     <div class="app-main"> <!--Horizontal container-->
-      <NuxtPage/>
+      <span>{{ disableNav }}</span>
+      <ClientOnly fallback-tag="span" fallback="Loading...">
+        <NuxtPage/>
+      </ClientOnly>
     </div>
     <!--Footer-->
   </div>

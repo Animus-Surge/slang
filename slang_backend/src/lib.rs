@@ -1,5 +1,7 @@
 pub mod schema;
 pub mod models;
+pub mod messenger;
+pub mod dbmanager;
 
 use diesel::pg::PgConnection;
 use diesel::prelude::*;

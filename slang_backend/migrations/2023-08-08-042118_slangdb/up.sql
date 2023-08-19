@@ -1,5 +1,3 @@
--- Your SQL goes here
-
 -- Messages
 create table slang_msgs (
 	message_id serial primary key,
@@ -21,7 +19,6 @@ create table slang_users (
 	user_groups integer array not null default '{}',
 	user_flags integer not null default 0
 );
---NOTE: user_flags tbd
 
 -- Groups
 create table slang_groups (
@@ -38,14 +35,15 @@ create table slang_groups (
 create table slang_roles (
 	role_id serial primary key,
 	role_name text not null,
-	role_color integer not null default 4095,
+	role_color integer not null default 16777215, -- #ffffff (white)
 	role_perms integer not null default 0,
 	role_members integer array not null default '{}'
 );
 
--- Channels TODO: perms
+-- Channels
 create table slang_channels (
 	channel_id serial primary key,
 	channel_name text not null,
-	channel_msgs integer array not null default '{}'
+	channel_msgs integer array not null default '{}',
+	channel_perms integer not null default 0
 );
