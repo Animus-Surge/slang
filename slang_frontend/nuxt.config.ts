@@ -16,5 +16,10 @@ export default defineNuxtConfig({
         }
       ]
     }
+  },
+  runtimeConfig: {
+    public: {
+      firebaseKey: process.env.FIREBASE_WEB
+    }
   }
 })

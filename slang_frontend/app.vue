@@ -1,23 +1,26 @@
 <script setup lang="ts">
-var disableNav = useState('disableNav')
-var navsDisabled = disableNav
 
-watch(disableNav, (newVal) => {
-  navsDisabled = disableNav
-})
+const route = useRoute()
+
+let isLogin = route.fullPath == "/login" ? true : false
+
 </script>
 
 <template>
   <div>
-    <div v-if="false">
+    <div v-if="!isLogin">
       <Navbar/>
       <Grouplist/>
     </div>
     <div class="app-main"> <!--Horizontal container-->
-      <span>{{ disableNav }}</span>
-      <ClientOnly fallback-tag="span" fallback="Loading...">
+      <div v-if="!isLogin">
         <NuxtPage/>
-      </ClientOnly>
+      </div>
+      <div v-else>
+        <ClientOnly>
+          <NuxtPage />
+        </ClientOnly>
+      </div>
     </div>
     <!--Footer-->
   </div>
@@ -29,7 +32,7 @@ div {
   height: 100%;
 }
 
-div.app-main {
+div.app-main div {
   display: flex;
   height: 100%;
 }

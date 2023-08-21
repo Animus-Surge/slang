@@ -92,6 +92,13 @@ fn channel_getmessage(groupid: i32, channelid: i32, messageid: i32) -> SlangResp
     generate_response(get_message(messageid))
 }
 
+#[get("/<userid>/exists")]
+fn user_checkexists(userid: i32) -> bool {
+    
+
+    false
+}
+
 #[launch]
 fn rocket() -> _ {
     //Start the messenger socket listeners

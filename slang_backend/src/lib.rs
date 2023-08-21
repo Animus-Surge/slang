@@ -202,3 +202,11 @@ pub fn get_channel(groupid: i32, channelid: i32) -> Status {
 pub fn create_channel(groupid: i32, channel: ChannelCreate) -> Status {
 	Status::NotImplemented
 }
+
+// User handling
+
+pub fn get_user_exists(userid: i32) -> bool {
+	
+
+	false
+}
