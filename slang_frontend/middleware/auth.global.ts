@@ -6,10 +6,15 @@ export default defineNuxtRouteMiddleware((to, from) => {
     let auth = useCookie('auth')
     let refresh = useCookie('refresh')
 
+    let bypass = true
+    if (bypass) return
+
     let key = process.env.FIREBASE_WEB
 
     console.log(auth.value)
     console.log(refresh.value)
+
+
 
     //ONLY RUN THIS IF THE PAGE IS NOT THE LOGIN PAGE
     if (to.path != '/login') {
