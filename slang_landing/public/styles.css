@@ -1,0 +1,13 @@
+html, body {
+    background: linear-gradient(#222, #542);
+    height: 100%;
+}
+div.main {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+}
+
+.header {
+    padding: 20rem;
+}
