@@ -1,13 +1,58 @@
 html, body {
-    background: linear-gradient(#222, #542);
+    background: #222;
     height: 100%;
-}
-div.main {
-    height: 100%;
-    width: 100%;
-    overflow: scroll;
+    color: #ccc;
 }
 
 .header {
     padding: 20rem;
+    background-color: #c904;
+}
+.footer {
+    padding: 20px;
+    background-color: #000;
+}
+
+h1 span {
+    padding: 4px;
+    background-color: #c908;
+    border: 1px solid #c90;
+    border-radius: 8px;
+    translate: 0 -50%;
+}
+
+p {
+    font-size: 14pt;
+}
+
+a {
+    color: #aa0;
+    text-decoration: none;
+    transition-property: color;
+    transition-duration: 100ms;
+}
+a:hover {
+    color: #ff0;
+    text-decoration: underline;
+}
+a:visited {
+    color: #aa0;
+    text-decoration: none;
+}
+
+.section1 {
+    padding: 12rem;
+    background-color: #0004;
+}
+.section2 {
+    padding: 12rem;
+    text-align: right;
+    background-color: #c902;
+}
+.section3 {
+    padding: 12rem;
+}
+
+.footersection {
+    padding: 10px;
 }

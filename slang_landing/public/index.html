@@ -1,22 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SITE UNDER CONSTRUCTION</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link href="./styles.css" rel="stylesheet">
+		<title>Slang | The Next Gen Platform</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+		<link href="./styles.css" rel="stylesheet">
+		<script>
+			const poss = [
+				'Community',
+				'Friendships'
+			]
+			
+			document.addEventListener('DOMContentLoaded', () => {
+				var rbox = document.getElementById('randomizer')
+				var idx = Math.round((Math.random() * poss.length))
+				rbox.innerText = poss[idx]
+			})
+		</script>
   </head>
   <body>
-    <div class="main">
+		<div class="main">
   	  <div class="container-fluid header">
-  	    <h1>Your all in one platform</h1>
+  			<h1>Your all in one platform for... <span id="randomizer">Community</span></h1>
   	  </div>
-			<div class="container-fluid">
+			<div class="container-fluid section1">
 				<h3>Possibilities are endless</h3>
 				<p>
 					Join communities of interest, create discussions, share your work... and much more
 				</p>
 			</div>
+			<div class="container-fluid section2">
+				<h3>Active development</h3>
+				<p>
+					Join the development discord <a href="https://discord.gg/zv9Cx9Dwtd">https://discord.gg/zv9Cx9Dwtd</a>
+				</p>
+			</div>
+			<div class="container-fluid footer">
+				<div class="footersection">
+					<p>Licensed under the Apache 2.0 license. See <a href="https://github.com/Animus-Surge/slang/blob/master/license.txt">license.txt</a> for more info.</p>
+				</div>
+			</div>
 		</div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>
