@@ -39,44 +39,71 @@ function menuHide() {
         <div class="icongroup">
             <a class="iconsec">
                 <i class="bi bi-chat-text-fill"></i>
+                <div class="hover">
+                    <p>Direct Messages</p>
+                </div>
             </a>
             <div class="content">
                 <a class="groupicon">
                     <img src="https://placehold.co/65x65"/>
                     <p class="notifcount">3</p>
+                    <div class="hover">
+                        <p>Username</p>
+                    </div>
                 </a>
             </div>
             <a class="groupchevron">
                 <i class="bi bi-chevron-up"></i>
+                <div class="hover">
+                    <p>Hide</p>
+                </div>
             </a>
         </div>
         <hr>
         <!--Groups-->
         <a class="groupicon">
-            <img src="https://placehold.co/65x65/red/red"/>
+            <img src="https://placehold.co/65x65"/>
             <p class="notifcount" style="visibility: visible">1</p>
+            <div class="hover">
+                <p>Group Name</p>
+            </div>
         </a>
         <div class="icongroup">
             <a class="iconsec">
                 <i class="bi bi-folder2"></i>
+                <div class="hover">
+                    <p>Folder Name</p>
+                </div>
             </a>
             <div class="content">
                 <a class="groupicon">
                     <img src="https://placehold.co/65x65"/>
-                    <p class="notifcount">3</p>
+                    <!-- <p class="notifcount">3</p> -->
+                    <div class="hover">
+                        <p>Group Name</p>
+                    </div>
                 </a>
             </div>
             <a class="groupchevron">
                 <i class="bi bi-chevron-up"></i>
+                <div class="hover">
+                    <p>Hide</p>
+                </div>
             </a>
         </div>
         <a class="groupicon">
-            <img src="https://placehold.co/65x65/green/green"/>
+            <img src="https://placehold.co/65x65"/>
             <p class="notifcount">7</p>
+            <div class="hover">
+                <p>Group Name</p>
+            </div>
         </a>
         <a class="groupicon">
-            <img src="https://placehold.co/65x65/blue/blue"/>
+            <img src="https://placehold.co/65x65"/>
             <p class="notifcount">9+</p>
+            <div class="hover">
+                <p>Group Name</p>
+            </div>
         </a>
     </div>
 </template>
@@ -89,8 +116,8 @@ div.nav {
     background-color: #0004;
     padding: 5px;
     align-items: center;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    /* overflow-y: scroll; */
+    /* overflow-x: unset; */
 }
 
 div.icongroup {
@@ -217,6 +244,7 @@ a.groupchevron {
     padding-bottom: 5px;
     background-color: #0004;
     width: 45px;
+    height: fit-content;
     border-radius: 10px;
     text-align: center;
     font-size: 14pt;
@@ -226,5 +254,39 @@ a.groupchevron:hover {
     background-color: #c908;
     color: #cc0;
     cursor: pointer;
+}
+
+a.groupicon div.hover {
+    position: relative;
+    visibility: hidden;
+    bottom: 70px;
+    left: 80px;
+    background-color: #222;
+    min-width: 100px;
+    font-size: 14pt;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 0px #000;
+}
+
+a.groupchevron div.hover {
+    position: relative;
+    visibility: hidden;
+    bottom: 70px;
+    left: 80px;
+    background-color: #222;
+    min-width: 100px;
+    font-size: 14pt;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 0px #000;
+}
+
+a.groupchevron:hover div.hover {
+    visibility: visible;
+}
+
+a.groupicon:hover div.hover {
+    visibility: visible;
 }
 </style>

@@ -6,16 +6,20 @@ html, body {
     overflow: hidden;
 }
 
+body.light {
+    background: linear-gradient(#bbb, #888);
+}
+
 html, body, h1, h2, h3, h4, h5, h6, p {
     margin: 0;
     padding: 0;
 
-    color: var(--theme1-color-text-light);
+    color: #ccc;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
-    color: var(--theme1-color-text-light);
+    color: #ccc;
     text-decoration: none;
 
     transition-property: color, text-decoration;
@@ -23,7 +27,7 @@ a {
 }
 
 a:hover {
-    color: var(--theme1-color-tertary);
+    color: #cc0;
     text-decoration: underline;
 }
 

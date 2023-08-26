@@ -11,6 +11,7 @@
 <style scoped>
 div.app-main {
   display: flex;
+  background: linear-gradient(#222, rgb(87, 65, 0));
   flex-direction: row;
   height: 100vh;
   overflow-y: hidden;

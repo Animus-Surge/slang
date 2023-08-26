@@ -1,22 +1,12 @@
 :root {
 
-    /*Default dark theme*/
-    --theme1-color-primary: #222;
-    --theme1-color-secondary: #c80;
-    --theme1-color-secondary-dark: #a60;
-    --theme1-color-tertary: #cc0;
-    --theme1-color-tertary-dark: #880;
-    
-    --theme1-color-accent0: #333;
-    --theme1-color-accent1: #444;
-    --theme1-color-accent2: #555;
+    --text-dark: #ccc;
+    --text-light: #111;
 
-    --theme1-color-text-light: #ccc;
-    --theme1-color-text-dark: #000;
-    --theme1-color-text-link: #c80;
-    --theme1-color-text-linkv: #cc0;
-    --theme1-color-text-linkv-dark: #880;
-
-    /*TODO: other themes*/
+    --theme1-color-1: #7be0ad;
+    --theme1-color-2: #aee5d8;
+    --theme1-color-3: #243010;
+    --theme1-color-4: #2a3c24;
+    --theme1-color-5: #031d44;
 
 }
