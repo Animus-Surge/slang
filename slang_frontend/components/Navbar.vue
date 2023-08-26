@@ -11,6 +11,8 @@ function menuHide() {
 }
 </script>
 
+<!-- TODO hover tooltips -->
+
 <template>
     <div class="nav">
         <a class="iconsec active" @click="menuShow"><i class="bi bi-list"></i></a>
@@ -39,24 +41,15 @@ function menuHide() {
         <div class="icongroup">
             <a class="iconsec">
                 <i class="bi bi-chat-text-fill"></i>
-                <div class="hover">
-                    <p>Direct Messages</p>
-                </div>
             </a>
             <div class="content">
                 <a class="groupicon">
                     <img src="https://placehold.co/65x65"/>
                     <p class="notifcount">3</p>
-                    <div class="hover">
-                        <p>Username</p>
-                    </div>
                 </a>
             </div>
             <a class="groupchevron">
                 <i class="bi bi-chevron-up"></i>
-                <div class="hover">
-                    <p>Hide</p>
-                </div>
             </a>
         </div>
         <hr>
@@ -64,51 +57,35 @@ function menuHide() {
         <a class="groupicon">
             <img src="https://placehold.co/65x65"/>
             <p class="notifcount" style="visibility: visible">1</p>
-            <div class="hover">
-                <p>Group Name</p>
-            </div>
         </a>
         <div class="icongroup">
             <a class="iconsec">
                 <i class="bi bi-folder2"></i>
-                <div class="hover">
-                    <p>Folder Name</p>
-                </div>
             </a>
             <div class="content">
                 <a class="groupicon">
                     <img src="https://placehold.co/65x65"/>
                     <!-- <p class="notifcount">3</p> -->
-                    <div class="hover">
-                        <p>Group Name</p>
-                    </div>
                 </a>
             </div>
             <a class="groupchevron">
                 <i class="bi bi-chevron-up"></i>
-                <div class="hover">
-                    <p>Hide</p>
-                </div>
             </a>
         </div>
         <a class="groupicon">
             <img src="https://placehold.co/65x65"/>
             <p class="notifcount">7</p>
-            <div class="hover">
-                <p>Group Name</p>
-            </div>
         </a>
         <a class="groupicon">
             <img src="https://placehold.co/65x65"/>
             <p class="notifcount">9+</p>
-            <div class="hover">
-                <p>Group Name</p>
-            </div>
         </a>
     </div>
 </template>
 
 <style scoped>
+@import url('~/assets/vars.css');
+
 div.nav {
     display: flex;
     flex-direction: column;
@@ -116,8 +93,7 @@ div.nav {
     background-color: #0004;
     padding: 5px;
     align-items: center;
-    /* overflow-y: scroll; */
-    /* overflow-x: unset; */
+    overflow-y: scroll;
 }
 
 div.icongroup {
@@ -195,7 +171,7 @@ a.iconsec.active {
 
 a.iconsec:hover {
     background-color: #c908;
-    color: #cc0;
+    color: var(--text-link-hover);
     cursor: pointer;
 }
 

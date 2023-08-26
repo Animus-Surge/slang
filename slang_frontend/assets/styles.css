@@ -1,25 +1,23 @@
 @import "./vars.css";
 
+/* TODO global light mode */
+
 html, body {
-    background: linear-gradient(#222, #542);
+    background: linear-gradient(var(--theme1-color-5), #111);
     height: 100%;
     overflow: hidden;
-}
-
-body.light {
-    background: linear-gradient(#bbb, #888);
 }
 
 html, body, h1, h2, h3, h4, h5, h6, p {
     margin: 0;
     padding: 0;
 
-    color: #ccc;
+    color: var(--text-dark);
     font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
-    color: #ccc;
+    color: var(--text-dark);
     text-decoration: none;
 
     transition-property: color, text-decoration;

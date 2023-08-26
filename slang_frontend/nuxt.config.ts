@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   devtools: { enabled: true }, //DEVELOPMENT MODE
   css: [
-    '~/assets/styles.css' //Main stylesheet
+    '~/assets/styles.css', //Main stylesheet
+    '~/assets/vars.css',   //Vars stylesheet
   ],
 
   //App information, like head element and such
