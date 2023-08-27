@@ -5,6 +5,7 @@
 <template>
   <div class="app-main">
     <Navbar />
+    <NuxtPage />
   </div>  
 </template>
 
