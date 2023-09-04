@@ -45,6 +45,28 @@ onMounted(() => activeId.value = -1)
 			</div>
 			<div class="vert-group">
 				<div class="card">
+					<h3>Posts</h3>
+				</div>
+				<div class="card post">
+					<div class="header">
+						<img class="icon" src="https://placehold.co/55x55" />
+						<p>
+							<strong>Username</strong><br>
+							<i>Post Name</i>
+						</p>
+					</div>
+					<hr>
+					<p>
+						Looking forward to being able to use Slang!	
+					</p>
+					<br>
+					<div class="stats">
+						<a class="stat-likes"><span id="post-xyz-likes">4.2k</span> <i class="bi bi-heart"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="vert-group">
+				<div class="card">
 					<h3>Recent Pings</h3>
 				</div>
 				<div class="card">
@@ -57,6 +79,22 @@ onMounted(() => activeId.value = -1)
 
 <style scoped>
 /****BEGIN: to be abstracted */
+
+/**Post card */
+div.header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+div.stats {
+
+}
+
+a.stat-likes:hover {
+	color: #f33;
+	text-decoration: none;
+}
 
 /**Activity card */
 div.user-card {
@@ -114,7 +152,7 @@ div.content h2 {
 
 div.grid {
 	display: grid;
-	grid-template-columns: 50% 50%;
+	grid-template-columns: 35% 35% 35%;
 	justify-content: center;
 	gap: 10px;
 	width: 100%;
