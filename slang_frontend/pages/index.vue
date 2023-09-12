@@ -44,15 +44,11 @@ onMounted(() => activeId.value = -1)
 				</div>
 			</div>
 			<div class="vert-group">
-				<div class="card">
-					<h3>Posts</h3>
-				</div>
 				<div class="card post">
 					<div class="header">
 						<img class="icon" src="https://placehold.co/55x55" />
 						<p>
-							<strong>Username</strong><br>
-							<i>Post Name</i>
+							<strong>Display Name</strong><br>
 						</p>
 					</div>
 					<hr>
@@ -60,8 +56,15 @@ onMounted(() => activeId.value = -1)
 						Looking forward to being able to use Slang!	
 					</p>
 					<br>
+					<div class="image-group">
+						<img class="thumb" src="https://placehold.co/655x300" width="655"/>
+						<!--TODO: maybe make a cool looking placeholder image?-->
+					</div>
+					<br>
 					<div class="stats">
-						<a class="stat-likes"><span id="post-xyz-likes">4.2k</span> <i class="bi bi-heart"></i></a>
+						<a class="stat stat-likes"><span id="post-xyz-likes">4.2k</span> <i class="bi bi-heart"></i></a>
+						<a class="stat stat-reposts"><span id="post-xyz-rep">1.3k</span> <i class="bi bi-repeat"></i></a>
+						<a class="stat stat-comments"><span id="post-xyz-com">402</span> <i class="bi bi-chat-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -85,15 +88,36 @@ div.header {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	gap: 10px;
 }
 
 div.stats {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	justify-content: flex-end;
+}
 
+a.stat {
+	text-decoration: none;
+	font-size: 14pt;
+	background-color: #2226;
+	padding: 8px;
+	border-radius: 5px;
+	transition-property: color, background;
+	transition-duration: 100ms;
+}
+
+a.stat:hover {
+	background-color: #2229;
+	cursor: pointer;
 }
 
 a.stat-likes:hover {
 	color: #f33;
-	text-decoration: none;
+}
+a.stat-reposts:hover {
+	color: #3f3;
 }
 
 /**Activity card */
@@ -152,7 +176,7 @@ div.content h2 {
 
 div.grid {
 	display: grid;
-	grid-template-columns: 35% 35% 35%;
+	grid-template-columns: 35% 50% 35%;
 	justify-content: center;
 	gap: 10px;
 	width: 100%;

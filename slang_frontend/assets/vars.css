@@ -3,13 +3,13 @@
     --text-dark: #ccc;
     --text-light: #111;
 
-    --text-link-hover: #aee5d8;
-    --text-link: #7be0ad;
+    --text-link-hover: #f5c705;
+    --text-link: #ccc;
 
-    --theme1-color-1: #7be0ad;
-    --theme1-color-2: #aee5d8;
-    --theme1-color-3: #243010;
-    --theme1-color-4: #2a3c24;
-    --theme1-color-5: #031d44;
+    --theme1-color-1: #fbc200;
+    --theme1-color-2: #7d7530;
+    --theme1-color-3: #733d0a;
+    --theme1-color-4: #b86d07;
+    --theme1-color-5: #222a0f;
 
 }
