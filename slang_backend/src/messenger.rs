@@ -51,7 +51,7 @@ pub fn start_websocket() {
 			//First check protocols, if it doesn't contain our custom protocol then reject
 			if !request.protocols().contains(&"slang-ws".to_string()) {
 				request.reject().unwrap();
-				
+
 				return;
 			}
 
@@ -86,7 +86,7 @@ pub fn start_websocket() {
 						sender.send_message(&message).unwrap();
 					}
 					OwnedMessage::Text(str) => {
-						
+
 					},
 					_ => {} //Do nothing with the other types
 					//TODO: message type handling
