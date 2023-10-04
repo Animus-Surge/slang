@@ -5,7 +5,6 @@ onMounted(() => activeId.value = -1)
 
 <template>
 	<div class="content">
-		<h2>Dashboard</h2>
 		<div class="grid">
 			<div class="vert-group">
 				<div class="card">
@@ -24,22 +23,7 @@ onMounted(() => activeId.value = -1)
 					<h3>Activity</h3>
 					<hr>
 					<div class="card-content scroll-flex-col">
-						<div class="user-card">
-							<div class="namepanel">
-								<img class="icon" src="https://placehold.co/55x55" />
-								<p>
-									<strong>Display or Nickname</strong><br>
-									Username
-								</p>
-							</div>
-							<div class="activity-card">
-								<img class="icon" src="https://placehold.co/65x65" />
-								<p>
-									Playing: <strong>Some Game</strong><br>
-									Playing for: 30 mins
-								</p>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -53,7 +37,30 @@ onMounted(() => activeId.value = -1)
 					</div>
 					<hr>
 					<p>
-						Looking forward to being able to use Slang!	
+						Looking forward to being able to use Slang!
+					</p>
+					<br>
+					<div class="image-group">
+						<img class="thumb" src="https://placehold.co/655x300" width="655"/>
+						<!--TODO: maybe make a cool looking placeholder image?-->
+					</div>
+					<br>
+					<div class="stats">
+						<a class="stat stat-likes"><span id="post-xyz-likes">4.2k</span> <i class="bi bi-heart"></i></a>
+						<a class="stat stat-reposts"><span id="post-xyz-rep">1.3k</span> <i class="bi bi-repeat"></i></a>
+						<a class="stat stat-comments"><span id="post-xyz-com">402</span> <i class="bi bi-chat-right"></i></a>
+					</div>
+				</div>
+				<div class="card post">
+					<div class="header">
+						<img class="icon" src="https://placehold.co/55x55" />
+						<p>
+							<strong>Display Name</strong><br>
+						</p>
+					</div>
+					<hr>
+					<p>
+						Look at this awesome thing I built!
 					</p>
 					<br>
 					<div class="image-group">
@@ -69,8 +76,14 @@ onMounted(() => activeId.value = -1)
 				</div>
 			</div>
 			<div class="vert-group">
-				<div class="card">
+				<div class="card card-recent-pings">
 					<h3>Recent Pings</h3>
+					<div class="inset-card">
+						<p>
+							<strong>Display Name</strong><br>
+							Username
+						</p>
+					</div>
 				</div>
 				<div class="card">
 					<h3>Discover</h3>
@@ -82,6 +95,24 @@ onMounted(() => activeId.value = -1)
 
 <style scoped>
 /****BEGIN: to be abstracted */
+
+/**Recent pings card*/
+div.card-recent-pings {
+	max-height: 30rem;
+	overflow-y: scroll;
+}
+
+div.inset-card {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 3px;
+	background-color: var(--theme1-color-3);
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+}
 
 /**Post card */
 div.header {
@@ -190,6 +221,7 @@ div.vert-group {
 	height: fit-content;
 	max-height: 100%;
 	gap: 5px;
+	border-radius: 5px;
 }
 
 div.card {
