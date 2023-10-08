@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
-    "bootstrap-icons": "^1.11.0",
+    "bootstrap-icons": "^1.11.1",
     "websocket": "^1.0.34"
   }
 }
