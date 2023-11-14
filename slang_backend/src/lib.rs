@@ -1,7 +1,10 @@
+#[macro_use] extern crate rocket;
+
 pub mod schema;
 pub mod models;
 pub mod messenger;
 pub mod dbmanager;
+pub mod webmanager;
 
 use diesel::pg::PgConnection;
 use diesel::prelude::*;
