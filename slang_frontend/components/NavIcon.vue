@@ -12,6 +12,7 @@ let click = async () => {
 	<a :class="props.type" @click="click()">
 		<i v-if="props.type.startsWith('iconsec')" class="bi" :class="props.data"></i>
 		<img v-else-if="props.type.startsWith('groupicon')" :src="props.data" />
+        <!--Add notif bubble-->
 	</a>
 </template>
 
@@ -27,7 +28,8 @@ a {
 }
 
 a.iconsec {
-    font-size: 30pt;
+    font-size: 27pt;
+    /* padding: 0; */
     background-color: #0004;
     border-radius: 10px;
     width: 45px;
