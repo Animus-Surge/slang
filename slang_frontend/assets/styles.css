@@ -3,7 +3,7 @@
 /* TODO global light mode */
 
 html, body {
-    background: linear-gradient(var(--theme1-color-5), #111);
+    background: #373814;
     height: 100%;
     overflow: hidden;
 }
