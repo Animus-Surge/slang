@@ -5,6 +5,7 @@
 <template>
   <div class="app-main">
     <Navbar />
+    <ProfilePopout />
     <div class="page">
       <NuxtPage />
     </div>
@@ -22,5 +23,11 @@ div.page {
   margin: 0 5rem;
   overflow-y: scroll;
   height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  div.page {
+    margin: 0;
+  }
 }
 </style>

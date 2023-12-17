@@ -1,5 +1,33 @@
 <script setup lang="ts">
+/*
+Vue states
 
+Boolean:
+- isProfilePopoutOpen
+- isSearchPopoutOpen
+- isNewGroupPopoutOpen
+
+Integer:
+- notificationCount
+- friendRequestCount
+- currentPageIndex (might do this differently, for now we'll use this)
+*/
+
+import { ref } from 'vue'
+
+const isProfilePopoutOpen = useState('profilePopoutOpen', () => false)
+const isSearchPopoutOpen = ref(false)
+const isNewGroupPopoutOpen = ref(false)
+
+const notificationCount = ref(3)
+const friendRequestCount = ref(0)
+
+const currentPageIndex = ref(0)
+
+const toggleProfilePopout = () => {
+	console.log("Hewwo")
+	isProfilePopoutOpen.value = !isProfilePopoutOpen.value;
+}
 </script>
 
 <!-- TODO hover tooltips -->
@@ -8,21 +36,22 @@
 	<div>
 		<div class="bigscreen">
 			<div class="linkgroup">
-				<a class="nav-button active" href="#">
+				<a class="nav-button" :class="{active: currentPageIndex==0}" href="#">
 					<i class="bi bi-house"></i>
 					<span class="tooltip">Dashboard</span>
 				</a>
-				<a class="nav-button" href="#">
+				<a class="nav-button" :class="{active: currentPageIndex==1}" href="#">
 					<i class="bi bi-people"></i>
-					<span class="notification-badge">3</span>
+					<span class="notification-badge" :class="{hidden: friendRequestCount==0}">{{ friendRequestCount }}</span>
 					<span class="tooltip">Friends</span>
 				</a>
 				<a class="nav-button" href="#">
 					<i class="bi bi-search"></i>
 					<span class="tooltip">Search</span>
 				</a>
-				<a class="nav-button" href="#">
+				<a class="nav-button" :class="{active: currentPageIndex==2}" href="#">
 					<i class="bi bi-bell"></i>
+					<span class="notification-badge">{{ notificationCount }}</span>
 					<span class="tooltip">Notifications</span>
 				</a>
 			</div>
@@ -30,11 +59,11 @@
 			</div>
 			<div class="linkgroup bottom">
 				<div class="divider"></div>
-				<a class="nav-button" href="#">
+				<a class="nav-button" :class="{active: isProfilePopoutOpen}" @click="toggleProfilePopout()">
 					<i class="bi bi-person"></i> <!--Replace with profile image-->
 					<span class="tooltip">Profile</span>
 				</a>
-				<a class="nav-button" href="#">
+				<a class="nav-button" :class="{active: currentPageIndex==3}" href="#">
 					<i class="bi bi-gear"></i>
 					<span class="tooltip">Settings</span>
 				</a>
@@ -72,12 +101,17 @@ div {
 	width: 100%;
 }
 
+.hidden {
+	display: none;
+}
+
 /* Desktop mode */
 
 div.bigscreen {
 	position: fixed;
 	top: 0;
 	left: 0;
+	z-index: 1;
 
 	height: 100%;
 	width: 4rem;
@@ -191,7 +225,6 @@ div.smallscreen {
 
 span.notification-badge {
 	position: absolute;
-
 	transform: translate(1rem, -1rem);
 
 	background-color: #700;
@@ -209,6 +242,8 @@ span.notification-badge {
 
 	font-size: 12pt;
 	font-weight: bold;
+
+	pointer-events: none;
 }
 
 @media screen and (max-width: 768px) {
